@@ -1,16 +1,19 @@
 class Particle {
 
   PImage img;
-  PVector location, velocity, acceleration;
-  float lifespan, mass = 1, radius = 10;
   color colour;
+  float lifespan, mass, radius;
+  PVector location, velocity, acceleration;
+  
   
   Particle(PVector l) {
+    mass = 1;
+    radius = 4;
+    lifespan = 255.0;
+    location = l.get();
+    img = loadImage("White_Circle.png");
     acceleration = new PVector(0, random(1));
     velocity = new PVector(random(-1, 1), random(-2, 0));
-    location = l.get();
-    lifespan = 255.0;
-    img = loadImage("White_Circle.png");
     colour = color( (int) random(100, 255), (int) random(100, 255), (int) random(100, 255) );
   }
 
